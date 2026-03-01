@@ -3,6 +3,8 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'ostruct'
+require 'minitest/mock'
 
 OmniAuth.config.test_mode = true
 

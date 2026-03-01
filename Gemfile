@@ -40,9 +40,11 @@ gem 'bootsnap', require: false
 
 gem 'aasm'
 gem 'active_storage_validations'
+gem 'enumerize'
 gem 'faker'
 gem 'kaminari'
 gem 'minitest', '~> 5.0'
+gem 'octokit'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'

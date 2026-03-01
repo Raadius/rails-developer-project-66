@@ -4,12 +4,12 @@ require 'test_helper'
 
 module Web
   class HomeControllerTest < ActionDispatch::IntegrationTest
-    test 'should show home page' do
+    test '#home' do
       get root_path
       assert_response :success
     end
 
-    test 'renders page content' do
+    test '#home page content' do
       get root_path
       assert_response :success
 
@@ -17,7 +17,7 @@ module Web
       assert_match I18n.t('titles.project'), response.body
     end
 
-    test 'header shows sign in button for guests' do
+    test '#home user anonimus' do
       get root_path
       assert_response :success
 
@@ -25,7 +25,7 @@ module Web
       assert_no_match I18n.t('layout.head.navbar.logout'), response.body
     end
 
-    test 'should show home page when logged in' do
+    test '#home user logged in' do
       @user = users(:one)
       sign_in(@user)
 

@@ -1,0 +1,13 @@
+.mb-4
+  h1 = @repository.full_name
+p
+  strong.me-2 = t('repositories.info.language')
+  = @repository.language
+p
+  strong.me-2 = t('repositories.info.created_at')
+  - if @repository.created_at
+    = l(@repository.created_at, format: :long)
+p
+  strong.me-2 = t('repositories.info.updated_at')
+  - if @repository.updated_at
+    = l(@repository.updated_at, format: :long)

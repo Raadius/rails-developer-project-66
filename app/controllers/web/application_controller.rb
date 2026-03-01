@@ -20,5 +20,11 @@ module Web
       flash[:alert] = t('notices.not_authorized')
       redirect_to root_path
     end
+
+    def check_auth
+      return if session[:user_id].present? && current_user.present?
+
+      user_not_authorized
+    end
   end
 end

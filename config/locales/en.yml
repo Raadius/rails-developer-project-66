@@ -6,19 +6,35 @@ en:
         logout: 'Logout'
         repos: 'Repos'
         home: 'Main'
-      footer:
-        hexlet: '©Hexlet Ltd, 2026'
+    footer:
+      hexlet: '©Hexlet Ltd, 2026'
   notices:
     signed_in_successful: 'Signed in successful!'
     sign_in_failed: 'There is an error occurred during signing in. Please try again.'
     logged_out: 'Signed out successful'
     not_authorized: 'You are not authorized to perform this action!'
+    repository_created: 'Repository was added successfully!'
   titles:
     hexlet_hello: 'Hi from Hexlet!'
     project: 'Repository quality checker'
+    new_repository: 'Add new repository'
   descriptions:
     project_description: 'A project that helps you automatically monitor the quality of your repositories on Github. It tracks changes and runs them through built-in analyzers. It then generates reports and sends them to the user.'
     hexlet_description: 'Programming practice coursers'
   buttons:
     more: 'Find out more!'
-
+    add_repository: 'Add new repository'
+  repositories:
+    table:
+      name: 'Name'
+      language: 'Language'
+      last_check_status: 'Last check status'
+      checking_status: 'Checking status'
+      commit_id: 'Commit ID'
+      checking_passed: 'Check passed?'
+      created_at: 'Created at'
+    info:
+      name: 'Name'
+      language: 'Language'
+      created_at: 'Created at'
+      updated_at: 'Updated at'

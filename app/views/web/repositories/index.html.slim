@@ -1,0 +1,17 @@
+= link_to t('buttons.add_repository'), new_repository_path, class: 'btn btn-primary'
+
+table.table.table-striped.table-hover.mt-4
+  thead
+    tr
+      th scope='col'
+        = t('repositories.table.name')
+      th scope='col'
+        = t('repositories.table.language')
+      th scope='col'
+        = t('repositories.table.last_check_status')
+
+  tbody
+    - @repositories.each do |repository|
+      tr
+        td = link_to repository.full_name, repository_path(repository)
+        td = repository.language

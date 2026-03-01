@@ -1,0 +1,17 @@
+rails_rails:
+  name: rails
+  github_id: 8514
+  full_name: rails/rails
+  language: ruby
+  clone_url: https://github.com/rails/rails.git
+  ssh_url: git@github.com:rails/rails.git
+  user: one
+
+hotwired_turbo:
+  name: turbo-rails
+  github_id: 317981738
+  full_name: hotwired/turbo-rails
+  language: ruby
+  clone_url: https://github.com/hotwired/turbo-rails.git
+  ssh_url: git@github.com:hotwired/turbo-rails.git
+  user: two

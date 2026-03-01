@@ -10,14 +10,31 @@ ru:
       hexlet: '©Hexlet Ltd, 2026'
   notices:
     signed_in_successful: 'Вы успешно вошли в систему!'
-    sign_in_failed: 'Произошла ошибка! Повторите попытку входа'
+    sign_in_failed: 'Произошла ошибка! Повторите попытку входа.'
     logged_out: 'Вы вышли из системы!'
     not_authorized: 'У вас нет прав для этого действия!'
+    repository_created: 'Репозиторий успешно добавлен!'
   titles:
     hexlet_hello: 'Привет от Хекслета!'
     project: 'Анализатор качества репозиториев'
+    new_repository: 'Добавление нового репозитория'
   descriptions:
     project_description: 'Проект, который помогает автоматически следить за качеством репозиториев на Github. Он отслеживает изменения и прогоняет их через встроенные анализаторы. Затем формирует отчеты и отправляет их пользователю.'
     hexlet_description: 'Практические курсы по программированию'
   buttons:
     more: 'Узнать больше'
+    add_repository: 'Добавить репозиторий'
+  repositories:
+    table:
+      name: 'Название'
+      language: 'Язык'
+      last_check_status: 'Статус последней проверки'
+      checking_status: 'Статус'
+      commit_id: 'ID коммита'
+      checking_passed: 'Проверка пройдена?'
+      created_at: 'Дата создания'
+    info:
+      name: 'Название'
+      language: 'Язык'
+      created_at: 'Дата создания'
+      updated_at: 'Дата обновления'

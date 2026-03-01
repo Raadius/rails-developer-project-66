@@ -12,5 +12,8 @@ Rails.application.routes.draw do
     get  'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     get  'auth/failure', to: 'auth#failure', as: :auth_failure
     delete 'logout', to: 'auth#logout', as: :logout
+
+    resources :repositories, only: %i[index show new create destroy] do
+    end
   end
 end
