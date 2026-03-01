@@ -38,6 +38,20 @@ gem 'bootsnap', require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'aasm'
+gem 'active_storage_validations'
+gem 'faker'
+gem 'kaminari'
+gem 'minitest', '~> 5.0'
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+gem 'pundit'
+gem 'rails-i18n'
+gem 'ransack'
+gem 'rollbar'
+gem 'simple_form'
+gem 'slim-rails', '~> 3.7.0'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
@@ -46,16 +60,25 @@ group :development, :test do
   gem 'brakeman', require: false
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  gem 'minitest-power_assert'
+  gem 'rubocop-performance'
   gem 'rubocop-rails-omakase', require: false
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'dotenv-rails'
+  gem 'slim_lint', require: false
   gem 'web-console'
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+end
+
+group :production do
+  gem 'pg'
 end

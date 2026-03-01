@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  email: firstonee@mail.ru
+  nickname: FirstOne
+  token: <%= SecureRandom.hex(55) %>
+
+two:
+  email: secondone@example.com
+  nickname: SecondOne
+  token: <%= SecureRandom.hex(55) %>
