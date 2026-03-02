@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_03_01_184011) do
+ActiveRecord::Schema[7.2].define(version: 2026_03_02_193758) do
   create_table "repositories", force: :cascade do |t|
     t.integer "github_id"
     t.string "name"
@@ -21,8 +21,19 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_01_184011) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index %w[user_id github_id], name: "index_repositories_on_user_id_and_github_id", unique: true
+    t.index ["user_id", "github_id"], name: "index_repositories_on_user_id_and_github_id", unique: true
     t.index ["user_id"], name: "index_repositories_on_user_id"
+  end
+
+  create_table "repository_checks", force: :cascade do |t|
+    t.string "commit_id"
+    t.string "status", default: "pending", null: false
+    t.integer "issues_count"
+    t.integer "repository_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.text "linter_output"
+    t.index ["repository_id"], name: "index_repository_checks_on_repository_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -35,4 +46,5 @@ ActiveRecord::Schema[7.2].define(version: 2026_03_01_184011) do
   end
 
   add_foreign_key "repositories", "users"
+  add_foreign_key "repository_checks", "repositories"
 end

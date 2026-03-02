@@ -40,6 +40,7 @@ gem 'bootsnap', require: false
 
 gem 'aasm'
 gem 'active_storage_validations'
+gem 'dry-container'
 gem 'enumerize'
 gem 'faker'
 gem 'kaminari'
@@ -79,6 +80,7 @@ group :test do
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'webmock'
 end
 
 group :production do

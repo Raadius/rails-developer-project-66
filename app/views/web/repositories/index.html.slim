@@ -1,4 +1,6 @@
-= link_to t('buttons.add_repository'), new_repository_path, class: 'btn btn-primary'
+= link_to t('buttons.add_repository'),
+        new_repository_path,
+        class: 'btn btn-primary'
 
 table.table.table-striped.table-hover.mt-4
   thead
@@ -15,3 +17,4 @@ table.table.table-striped.table-hover.mt-4
       tr
         td = link_to repository.full_name, repository_path(repository)
         td = repository.language
+        td = repository.checks.order(created_at: :desc).first&.status

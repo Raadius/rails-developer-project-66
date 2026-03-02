@@ -1,0 +1,11 @@
+one:
+  repository: rails_rails
+  status: finished
+  commit_id: abc123def456
+  issues_count: 0
+
+two:
+  repository: rails_rails
+  status: pending
+  commit_id:
+  issues_count:

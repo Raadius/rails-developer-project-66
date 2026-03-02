@@ -1,0 +1,54 @@
+= link_to t('buttons.back'),
+        repository_path(@check.repository),
+        class: 'btn btn-primary mb-4',
+        data: { turbo: false }
+
+h1 = "#{t('titles.check')} ##{@check.id}"
+
+p
+  strong.me-2 = t('repositories.checks.created_at')
+  = @check.created_at.strftime('%d.%m.%Y %H:%M')
+p
+  strong.me-2 = t('repositories.checks.check_status')
+  = t("repositories.checks.state.#{@check.status}")
+p
+  strong.me-2 = t('repositories.checks.result')
+  - if @check.finished?
+    - if @check.checking_passed?
+      = t('repositories.checks.status.passed')
+    - else
+      = t('repositories.checks.status.failed')
+  - else
+    | —
+p
+  strong.me-2 = t('repositories.checks.issues_count')
+  = @check.issues_count
+p
+  strong.me-2 = t('repositories.checks.commit_id')
+  - if @check.commit_id.present?
+    - url = github_commit_url(@check.repository, @check.commit_id)
+    = link_to @check.commit_id.first(7), url,
+              target: '_blank', rel: 'noopener noreferrer'
+
+- if @check.linter_offenses.any?
+  table.table.mt-4
+    thead
+      tr
+        th = t('repositories.checks.offense.message')
+        th = t('repositories.checks.offense.rule_id')
+        th = t('repositories.checks.offense.location')
+    tbody
+      - @check.linter_offenses.each do |file|
+        - path = file['path'].sub(%r{.*tmp/repos/\d+/}, '')
+        - url = github_file_url(@check.repository, @check.commit_id, path)
+        tr
+          td colspan='3'
+            = link_to path, url, target: '_blank', rel: 'noopener noreferrer'
+        - file['offenses'].each do |offense|
+          tr
+            td = offense['message']
+            td = offense['cop_name']
+            td
+              = offense.dig('location', 'line')
+              | :
+              = offense.dig('location', 'column')

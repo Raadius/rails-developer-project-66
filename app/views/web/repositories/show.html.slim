@@ -1,5 +1,11 @@
 .mb-4
   h1 = @repository.full_name
+
+= button_to t('buttons.run_check'),
+        repository_checks_path(@repository),
+        method: :post,
+        class: 'btn btn-primary mb-3',
+        data: { turbo: false }
 p
   strong.me-2 = t('repositories.info.language')
   = @repository.language
@@ -11,3 +17,30 @@ p
   strong.me-2 = t('repositories.info.updated_at')
   - if @repository.updated_at
     = l(@repository.updated_at, format: :long)
+
+table.table
+  thead
+    tr
+      th #
+      th = t('repositories.table.checking_status')
+      th = t('repositories.table.commit_id')
+      th = t('repositories.table.checking_passed')
+      th = t('repositories.table.created_at')
+  tbody
+    - @checks.each do |check|
+      tr
+        td = link_to "##{check.id}", repository_check_path(@repository, check)
+        td = t("repositories.checks.state.#{check.status}")
+        td
+          - if check.commit_id.present?
+            - url = github_commit_url(@repository, check.commit_id)
+            = link_to check.commit_id.first(7), url,
+                      target: '_blank', rel: 'noopener noreferrer'
+        - if check.finished?
+          - if check.checking_passed?
+            td = t('repositories.checks.status.passed')
+          - else
+            td = t('repositories.checks.status.failed')
+        - else
+          td = '—'
+        td = l(check.created_at, format: :long)

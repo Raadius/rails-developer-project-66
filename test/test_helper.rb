@@ -5,6 +5,9 @@ require_relative '../config/environment'
 require 'rails/test_help'
 require 'ostruct'
 require 'minitest/mock'
+require 'webmock/minitest'
+require Rails.root.join('app/lib/github_client_stub')
+require Rails.root.join('app/lib/linter_stub')
 
 OmniAuth.config.test_mode = true
 
@@ -16,7 +19,7 @@ module ActiveSupport
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 
-    # Add more helper methods to be used by all tests here...
+    set_fixture_class repository_checks: Repository::Check
   end
 
   class ActionDispatch::IntegrationTest

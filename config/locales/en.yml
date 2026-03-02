@@ -14,16 +14,22 @@ en:
     logged_out: 'Signed out successful'
     not_authorized: 'You are not authorized to perform this action!'
     repository_created: 'Repository was added successfully!'
+    check_started: 'Repository check has started!'
   titles:
     hexlet_hello: 'Hi from Hexlet!'
     project: 'Repository quality checker'
     new_repository: 'Add new repository'
+    checks: 'Checks'
+    check: 'Checking result'
   descriptions:
     project_description: 'A project that helps you automatically monitor the quality of your repositories on Github. It tracks changes and runs them through built-in analyzers. It then generates reports and sends them to the user.'
     hexlet_description: 'Programming practice coursers'
   buttons:
     more: 'Find out more!'
     add_repository: 'Add new repository'
+    run_check: 'Check repository'
+    show_check: 'Show check info'
+    back: 'Back to repository'
   repositories:
     table:
       name: 'Name'
@@ -38,3 +44,12 @@ en:
       language: 'Language'
       created_at: 'Created at'
       updated_at: 'Updated at'
+    checks:
+      commit_id: 'Commit ID'
+      created_at: 'Created at'
+      check_status: 'Check status'
+      issues_count: 'Number of issues'
+      result: 'Result'
+      status:
+        passed: 'Passed'
+        failed: 'Failed'

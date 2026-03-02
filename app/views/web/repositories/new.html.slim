@@ -1,4 +1,4 @@
-= t('titles.new_repository')
+h1 = t('titles.new_repository')
 
 = simple_form_for @repository do |f|
   = f.input :github_id,
@@ -6,4 +6,4 @@
           collection: @github_repositories,
           label_method: :full_name,
           value_method: :id
-  = f.button :submit, class: 'btn btn-success'
+  = f.button :submit, class: 'btn btn-success', data: { turbo: false }
