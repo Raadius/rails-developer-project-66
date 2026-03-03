@@ -36,8 +36,8 @@ class RepositoryService
       FileUtils.mkdir_p(dest)
       system("git clone #{repo.clone_url} #{dest}")
 
-      # запускаем линтер
-      linter = ApplicationContainer[:linter]
+      # запускаем линтер в зависимости от языка репозитория
+      linter = ApplicationContainer[:"#{repo.language}_linter"]
       result = linter.run(dest)
 
       check.update!(

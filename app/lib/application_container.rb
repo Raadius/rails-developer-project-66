@@ -4,12 +4,14 @@ class ApplicationContainer
   extend Dry::Container::Mixin
 
   if Rails.env.test?
-    register :github_client, -> { GithubClientStub }
-    register :linter, -> { LinterStub }
-    register :git, -> { GitStub }
+    register :github_client,     -> { GithubClientStub }
+    register :ruby_linter,       -> { LinterStub }
+    register :javascript_linter, -> { JsLinterStub }
+    register :git,               -> { GitStub }
   else
-    register :linter, -> { Linter }
-    register :git, -> { Git }
-    register :github_client, -> { Octokit::Client }
+    register :ruby_linter,       -> { Linter }
+    register :javascript_linter, -> { JsLinter }
+    register :git,               -> { Git }
+    register :github_client,     -> { Octokit::Client }
   end
 end
