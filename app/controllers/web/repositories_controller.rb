@@ -46,6 +46,13 @@ module Web
       )
 
       if @repository.save
+        webhook_url = Rails.application.routes.url_helpers.api_checks_url
+        client.create_hook(
+          @repository.full_name,
+          'web',
+          { url: webhook_url, content_type: 'json' },
+          { events: ['push'], active: true }
+        )
         redirect_to repositories_path, notice: t('notices.repository_created')
       else
         render :new, status: :unprocessable_content
