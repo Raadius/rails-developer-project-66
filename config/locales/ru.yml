@@ -8,6 +8,14 @@ ru:
         home: 'Главная'
     footer:
       hexlet: '©Hexlet Ltd, 2026'
+  mailers:
+    check_mailer:
+      failed:
+        subject: 'Проверка репозитория %{repo} не прошла'
+        greeting: 'Привет, %{name}!'
+        intro: 'Проверка репозитория %{repo} завершена со статусом: %{status}.'
+        issues_count: 'Найдено нарушений: %{count}.'
+        link: 'Посмотреть результат проверки'
   notices:
     signed_in_successful: 'Вы успешно вошли в систему!'
     sign_in_failed: 'Произошла ошибка! Повторите попытку входа.'

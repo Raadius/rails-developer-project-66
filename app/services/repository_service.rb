@@ -45,9 +45,11 @@ class RepositoryService
         linter_output: result.to_json
       )
       check.finish!
+      CheckMailer.failed(check).deliver_later unless check.checking_passed?
     rescue StandardError => e
       check.fail!
       Rails.logger.error(e)
+      CheckMailer.failed(check).deliver_later
     ensure
       # чистим временную папку
       FileUtils.rm_rf(REPO_DIR.join(check.id.to_s)) if check.id

@@ -34,7 +34,5 @@ class GithubClientStub
     [CommitStub.new('abc123def456')]
   end
 
-  def create_hook(_full_name, _type, _config, _options = {})
-    true
-  end
+  def create_hook(_full_name, _type, _config, _options = {}); end
 end
