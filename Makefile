@@ -6,7 +6,7 @@ render-build:
 	bundle exec rails db:seed
 
 render-start:
-	bundle exec puma -t 5:5 -p $${PORT:-3000} -e $${RAILS_ENV:-development}
+	bundle exec puma -t 5:5 -p $${PORT:-3000} -e $${RAILS_ENV:-production}
 
 start-server:
 	bundle exec rails server
@@ -38,6 +38,7 @@ copy-env:
 
 prepare-local:
 	bundle install
+	yarn install
 	bundle exec rails db:migrate
 	bundle exec rails db:seed
 	make copy-env

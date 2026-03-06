@@ -52,37 +52,31 @@
 ```bash
 git clone https://github.com/Raadius/rails-developer-project-66.git
 cd rails-developer-project-66
-
-bundle install
-yarn install
-
-cp .env.example .env  # заполни переменные (см. ниже)
-
-rails db:setup
-rails assets:precompile  # или: yarn build && yarn build:css
+make prepare-local 
 ```
 
 ### Переменные окружения
 
-Создай файл `.env` в корне проекта:
+Скопируй `.env.example` в `.env` и заполни:
 
+```bash
+cp .env.example .env
 ```
-# GitHub OAuth (https://github.com/settings/applications/new)
-GITHUB_CLIENT_ID=your_client_id
-GITHUB_CLIENT_SECRET=your_client_secret
 
-# Внешний адрес для webhooks (только при использовании ngrok)
-BASE_URL=abc123.ngrok-free.app
+| Переменная | Описание |
+|---|---|
+| `GITHUB_CLIENT_ID` | OAuth App ID — [github.com/settings/applications/new](https://github.com/settings/applications/new) |
+| `GITHUB_CLIENT_SECRET` | OAuth App Secret — там же |
+| `BASE_URL` | Домен приложения. Локально — адрес ngrok (например `abc123.ngrok-free.app`) |
+| `SMTP_USER` | SMTP username из Mailtrap — [mailtrap.io](https://mailtrap.io) → Inboxes → SMTP Settings |
+| `SMTP_PASSWORD` | SMTP password из Mailtrap — там же |
 
-# Email (Mailtrap — https://mailtrap.io, вкладка SMTP Settings)
-MAILTRAP_USER=your_mailtrap_username
-MAILTRAP_PASSWORD=your_mailtrap_password
-```
+> Email-уведомления в development настроены на Mailtrap. Письма перехватываются и не уходят реальным получателям.
 
 ### Запуск
 
 ```bash
-rails server
+rails s
 ```
 
 Приложение будет доступно на `http://localhost:3000`.
@@ -90,7 +84,7 @@ rails server
 ### Тесты
 
 ```bash
-rails test
+make run-tests
 ```
 
 ### Webhooks в локальной разработке
@@ -114,17 +108,28 @@ BASE_URL=abc123.ngrok-free.app
 
 ## Деплой на Render
 
-1. Создай новый **Web Service**, подключи репозиторий
-2. Укажи команду запуска: `bundle exec rails server -p $PORT`
-3. Добавь **PostgreSQL** базу данных (или внешнюю, например [neon.tech](https://neon.tech))
-4. В **Environment Variables** добавь все переменные из `.env`, плюс:
-   ```
-   RAILS_ENV=production
-   DATABASE_URL=...        # строка подключения к PostgreSQL
-   SECRET_KEY_BASE=...     # rails secret
-   BASE_URL=your-app.onrender.com
-   ```
-5. В **Build Command** укажи:
-   ```
-   bundle install && yarn install && yarn build && yarn build:css && rails assets:precompile && rails db:migrate
-   ```
+   1. Создай новый **Web Service**, подключи репозиторий
+   2. Укажи команду сборки: `make render-build`
+   3. Укажи команду запуска: `make render-start`
+   4. Добавь **PostgreSQL** базу данных (или внешнюю, например [neon.tech](https://neon.tech))
+   5. В **Environment Variables** добавь все переменные из `.env`, плюс:
+      ```
+      RAILS_ENV=production
+      DATABASE_URL=...                 # строка подключения к PostgreSQL
+      SECRET_KEY_BASE=...              # rails secret
+      BASE_URL=your-app.onrender.com   # (без https://)
+      GITHUB_CLIENT_ID=...             # айди клиента из приложения на Oauth Github
+      GITHUB_CLIENT_SECRET=...         # секрет из приложения на Oauth Github (генерируется)
+      SMTP_HOST=...                    # хост smtp-приложения
+      SMTP_PASSWORD=...                # твой пароль из smtp
+      SMTP_PORT=...                    # порт smtp
+      SMTP_USER=...                    # юзернейм из smtp
+      ```
+   6. В **Build Command** укажи:
+      ```
+      make render-build
+      ```
+   7. Для **старта** приложения укажи:
+      ```
+      make render-start
+      ```

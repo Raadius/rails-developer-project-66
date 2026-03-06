@@ -49,9 +49,9 @@ Rails.application.configure do
 
   config.action_mailer.smtp_settings = {
     host: 'sandbox.smtp.mailtrap.io',
-    port:  2525,
-    user_name: ENV['MAILTRAP_USER'],
-    password: ENV['MAILTRAP_PASSWORD']
+    port: 2525,
+    user_name: ENV.fetch('SMTP_USER', nil),
+    password: ENV.fetch('SMTP_PASSWORD', nil)
   }
 
   # Print deprecation notices to the Rails logger.
