@@ -39,7 +39,7 @@ gem 'bootsnap', require: false
 gem 'aasm'
 gem 'dry-container'
 gem 'enumerize'
-gem 'minitest', '~> 5.0'
+gem 'minitest', '~> 6.0'
 gem 'octokit'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
