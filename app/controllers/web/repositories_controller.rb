@@ -45,7 +45,7 @@ module Web
         client.create_hook(
           @repository.full_name,
           'web',
-          { url: webhook_url, content_type: 'json', secret: ENV.fetch('GITHUB_WEBHOOK_SECRET') },
+          { url: webhook_url, content_type: 'json', secret: ENV.fetch('GITHUB_WEBHOOK_SECRET', nil) }.compact,
           { events: ['push'], active: true }
         )
         redirect_to repositories_path, notice: t('notices.repository_created')
