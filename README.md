@@ -121,6 +121,7 @@ BASE_URL=abc123.ngrok-free.app
       GITHUB_CLIENT_ID=...             # айди клиента из приложения на Oauth Github
       GITHUB_CLIENT_SECRET=...         # секрет из приложения на Oauth Github (генерируется)
       SMTP_HOST=...                    # хост smtp-приложения
+      SMTP_ADDRESS=...                 # адрес smtp-приложения
       SMTP_PASSWORD=...                # твой пароль из smtp
       SMTP_PORT=...                    # порт smtp
       SMTP_USER=...                    # юзернейм из smtp
