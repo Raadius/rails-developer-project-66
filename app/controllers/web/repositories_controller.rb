@@ -5,35 +5,30 @@ module Web
     before_action :check_auth
 
     def index
-      @repositories = current_user.repositories
+      skip_authorization
+      @repositories = policy_scope(Repository)
     end
 
     def show
       @repository = current_user.repositories.find(params[:id])
 
       authorize @repository
-      @checks = @repository.checks.order(created_at: :desc)
+      @checks = @repository.checks.recent
     end
 
     def new
-      client = ApplicationContainer[:github_client].new(
-        access_token: current_user.token,
-        auto_paginate: true
-      )
-
-      languages = Repository.language.values
+      authorize Repository, :new?
+      client = GithubClientFactory.for_user(current_user)
 
       github_repos = client.repos(user: current_user.nickname)
-      @github_repositories = github_repos.select { |rep| languages.include?(rep.language&.downcase) }
+      @github_repositories = github_repos.select { |rep| Repository.language.values.include?(rep.language&.downcase) }
       @repository = current_user.repositories.build
     end
 
     def create
+      authorize Repository, :create?
       github_id = params.dig(:repository, :github_id).to_i
-      client = ApplicationContainer[:github_client].new(
-        access_token: current_user.token,
-        auto_paginate: true
-      )
+      client = GithubClientFactory.for_user(current_user)
       repo_info = client.repository(github_id)
 
       @repository = current_user.repositories.find_or_initialize_by(github_id: github_id)
@@ -50,7 +45,7 @@ module Web
         client.create_hook(
           @repository.full_name,
           'web',
-          { url: webhook_url, content_type: 'json' },
+          { url: webhook_url, content_type: 'json', secret: ENV.fetch('GITHUB_WEBHOOK_SECRET') },
           { events: ['push'], active: true }
         )
         redirect_to repositories_path, notice: t('notices.repository_created')

@@ -19,7 +19,6 @@
     <orderEntry type="library" scope="PROVIDED" name="actionpack (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actiontext (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="actionview (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="active_storage_validations (v3.0.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activejob (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activemodel (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="activerecord (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
@@ -51,7 +50,7 @@
     <orderEntry type="library" scope="PROVIDED" name="enumerize (v2.8.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erb (v6.0.2, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="erubi (v1.13.1, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="faker (v3.6.0, rbenv: 3.2.4) [gem]" level="application" />
+    <orderEntry type="library" scope="TEST" name="faker (v3.6.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v2.14.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday-net_http (v3.4.2, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="globalid (v1.3.0, rbenv: 3.2.4) [gem]" level="application" />
@@ -60,15 +59,10 @@
     <orderEntry type="library" scope="PROVIDED" name="i18n (v1.14.8, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="io-console (v0.8.2, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="irb (v1.17.0, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="jbuilder (v2.14.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jsbundling-rails (v1.3.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json (v2.18.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="json-schema (v6.1.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="jwt (v3.1.2, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="kaminari (v1.2.2, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="kaminari-actionview (v1.2.2, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="kaminari-activerecord (v1.2.2, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="kaminari-core (v1.2.2, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="language_server-protocol (v3.17.0.5, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="lint_roller (v1.1.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="logger (v1.7.0, rbenv: 3.2.4) [gem]" level="application" />
@@ -120,7 +114,6 @@
     <orderEntry type="library" scope="PROVIDED" name="railties (v7.2.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rainbow (v3.1.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rake (v13.3.1, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="ransack (v4.4.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rdoc (v7.2.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="regexp_parser (v2.11.3, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="reline (v0.6.3, rbenv: 3.2.4) [gem]" level="application" />
@@ -128,9 +121,9 @@
     <orderEntry type="library" scope="PROVIDED" name="rollbar (v3.7.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop (v1.85.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-ast (v1.49.0, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="TEST" name="rubocop-performance (v1.26.1, rbenv: 3.2.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-performance (v1.26.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubocop-rails (v2.34.3, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="TEST" name="rubocop-rails-omakase (v1.1.0, rbenv: 3.2.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rubocop-rails-omakase (v1.1.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="ruby-progressbar (v1.13.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="rubyzip (v3.2.2, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="sawyer (v0.9.3, rbenv: 3.2.4) [gem]" level="application" />
@@ -159,7 +152,7 @@
     <orderEntry type="library" scope="PROVIDED" name="useragent (v0.16.11, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="version_gem (v1.1.9, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="web-console (v4.2.1, rbenv: 3.2.4) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="webmock (v3.26.1, rbenv: 3.2.4) [gem]" level="application" />
+    <orderEntry type="library" scope="TEST" name="webmock (v3.26.1, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket (v1.2.11, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-driver (v0.8.0, rbenv: 3.2.4) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="websocket-extensions (v0.1.5, rbenv: 3.2.4) [gem]" level="application" />

@@ -18,8 +18,6 @@ gem 'turbo-rails'
 gem 'stimulus-rails'
 # Bundle and process CSS [https://github.com/rails/cssbundling-rails]
 gem 'cssbundling-rails'
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -39,18 +37,14 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 gem 'aasm'
-gem 'active_storage_validations'
 gem 'dry-container'
 gem 'enumerize'
-gem 'faker'
-gem 'kaminari'
 gem 'minitest', '~> 5.0'
 gem 'octokit'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'
 gem 'rails-i18n'
-gem 'ransack'
 gem 'rollbar'
 gem 'simple_form'
 gem 'slim-rails', '~> 3.7.0'
@@ -61,6 +55,8 @@ gem 'rubocop-performance', require: false
 gem 'rubocop-rails-omakase', require: false
 
 group :development, :test do
+  gem 'faker'
+
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows], require: 'debug/prelude'
 

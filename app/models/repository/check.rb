@@ -5,6 +5,9 @@ class Repository::Check < ApplicationRecord
 
   belongs_to :repository
 
+  scope :recent, -> { order(created_at: :desc) }
+  scope :completed, -> { where(status: %w[finished failed]) }
+
   aasm column: :status do
     state :pending, initial: true
     state :running
@@ -31,8 +34,8 @@ class Repository::Check < ApplicationRecord
   def linter_offenses
     return [] if linter_output.blank?
 
-    JSON.parse(linter_output)
-        .fetch('files', [])
-        .select { |f| f['offenses'].present? }
+    @linter_offenses ||= JSON.parse(linter_output)
+                             .fetch('files', [])
+                             .select { |f| f['offenses'].present? }
   end
 end

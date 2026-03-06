@@ -1,4 +1,12 @@
 en:
+  mailers:
+    check_mailer:
+      notify:
+        subject: 'Repository check for %{repo} completed'
+        greeting: 'Hi, %{name}!'
+        intro: 'Repository check for %{repo} completed with status: %{status}.'
+        issues_count: 'Issues found: %{count}.'
+        link: 'View check result'
   layout:
     head:
       navbar:

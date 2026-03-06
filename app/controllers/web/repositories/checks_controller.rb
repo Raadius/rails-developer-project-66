@@ -11,8 +11,9 @@ module Web
       end
 
       def create
+        authorize repository, :show?
         check = repository.checks.create!
-        ::RepositoryCheckJob.perform_later(check.id)
+        RepositoryCheckJob.perform_later(check.id)
 
         redirect_to repository_path(repository), notice: t('notices.check_started')
       end

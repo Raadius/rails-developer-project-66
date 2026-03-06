@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 ENV['RAILS_ENV'] ||= 'test'
+ENV['GITHUB_WEBHOOK_SECRET'] ||= 'test_webhook_secret'
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'ostruct'

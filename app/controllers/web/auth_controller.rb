@@ -2,6 +2,8 @@
 
 module Web
   class AuthController < ApplicationController
+    skip_after_action :verify_authorized
+
     def callback
       auth = request.env['omniauth.auth']
 
@@ -10,7 +12,7 @@ module Web
       user.email = auth[:info][:email]
       user.token = auth[:credentials][:token]
 
-      if user.save!
+      if user.save
         session[:user_id] = user.id
         redirect_to root_path, notice: t('notices.signed_in_successful')
       else

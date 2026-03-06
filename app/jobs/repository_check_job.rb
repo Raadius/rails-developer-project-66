@@ -5,6 +5,6 @@ class RepositoryCheckJob < ApplicationJob
 
   def perform(check_id)
     check = Repository::Check.find(check_id)
-    RepositoryService.check_repository(check)
+    RepositoryCheckService.new(check).call
   end
 end

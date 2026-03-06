@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class GitStub
-  class << self
-    def clone?(_clone_url, _path)
-      true
-    end
+  def self.clone(_url, _path)
+    # no-op in tests
   end
 end

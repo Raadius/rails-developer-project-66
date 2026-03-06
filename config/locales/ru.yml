@@ -10,8 +10,8 @@ ru:
       hexlet: '©Hexlet Ltd, 2026'
   mailers:
     check_mailer:
-      failed:
-        subject: 'Проверка репозитория %{repo} не прошла'
+      notify:
+        subject: 'Проверка репозитория %{repo} завершена'
         greeting: 'Привет, %{name}!'
         intro: 'Проверка репозитория %{repo} завершена со статусом: %{status}.'
         issues_count: 'Найдено нарушений: %{count}.'
