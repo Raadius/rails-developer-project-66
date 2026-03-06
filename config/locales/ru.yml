@@ -1,13 +1,12 @@
 ru:
   activerecord:
-    aasm:
+    attributes:
       repository/check:
         aasm_state:
-          states:
-            pending: 'Ожидает'
-            running: 'Выполняется'
-            finished: 'Завершена'
-            failed: 'Ошибка'
+          pending: 'Ожидает'
+          running: 'Выполняется'
+          finished: 'Завершена'
+          failed: 'Ошибка'
   layout:
     head:
       navbar:

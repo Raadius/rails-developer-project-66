@@ -1,13 +1,12 @@
 en:
   activerecord:
-    aasm:
+    attributes:
       repository/check:
         aasm_state:
-          states:
-            pending: 'Pending'
-            running: 'Running'
-            finished: 'Finished'
-            failed: 'Failed'
+          pending: 'Pending'
+          running: 'Running'
+          finished: 'Finished'
+          failed: 'Failed'
   mailers:
     check_mailer:
       notify:
