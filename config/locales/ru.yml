@@ -1,4 +1,13 @@
 ru:
+  activerecord:
+    aasm:
+      repository/check:
+        aasm_state:
+          states:
+            pending: 'Ожидает'
+            running: 'Выполняется'
+            finished: 'Завершена'
+            failed: 'Ошибка'
   layout:
     head:
       navbar:
@@ -61,11 +70,6 @@ ru:
       status:
         passed: 'Пройдена'
         failed: 'Не пройдена'
-      state:
-        pending: 'Ожидает'
-        running: 'Выполняется'
-        finished: 'Завершена'
-        failed: 'Ошибка'
       offense:
         message: 'Сообщение'
         rule_id: 'Идентификатор правила'

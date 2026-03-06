@@ -6,9 +6,9 @@ class Repository::Check < ApplicationRecord
   belongs_to :repository
 
   scope :recent, -> { order(created_at: :desc) }
-  scope :completed, -> { where(status: %w[finished failed]) }
+  scope :completed, -> { where(aasm_state: %w[finished failed]) }
 
-  aasm column: :status do
+  aasm do
     state :pending, initial: true
     state :running
     state :finished
@@ -20,10 +20,12 @@ class Repository::Check < ApplicationRecord
 
     event :finish do
       transitions from: :running, to: :finished
+      after { update!(passed: checking_passed?) }
     end
 
     event :fail do
       transitions from: :running, to: :failed
+      after { update!(passed: false) }
     end
   end
 

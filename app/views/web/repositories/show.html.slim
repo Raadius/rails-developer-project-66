@@ -30,7 +30,7 @@ table.table
     - @checks.each do |check|
       tr
         td = link_to "##{check.id}", repository_check_path(@repository, check)
-        td = t("repositories.checks.state.#{check.status}")
+        td = check.aasm.human_state
         td
           - if check.commit_id.present?
             - url = github_commit_url(@repository, check.commit_id)

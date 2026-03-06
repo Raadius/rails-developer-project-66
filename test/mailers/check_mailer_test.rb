@@ -5,7 +5,7 @@ require 'test_helper'
 class CheckMailerTest < ActionMailer::TestCase
   test 'notify sends email with check details' do
     check = repository_checks(:one)
-    check.update!(status: 'finished', issues_count: 3)
+    check.update!(aasm_state: 'finished', issues_count: 3)
 
     mail = CheckMailer.notify(check)
 

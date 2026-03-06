@@ -2,7 +2,7 @@ p = t('mailers.check_mailer.notify.greeting', name: @user.nickname)
 
 p = t('mailers.check_mailer.notify.intro',
        repo: @repository.full_name,
-       status: t("repositories.checks.state.#{@check.status}"))
+       status: @check.aasm.human_state)
 
 - if @check.issues_count&.positive?
   p = t('mailers.check_mailer.notify.issues_count', count: @check.issues_count)

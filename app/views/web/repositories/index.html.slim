@@ -17,4 +17,4 @@ table.table.table-striped.table-hover.mt-4
       tr
         td = link_to repository.full_name, repository_path(repository)
         td = repository.language
-        td = repository.checks.order(created_at: :desc).first&.status
+        td = repository.checks.recent.first&.aasm.human_state

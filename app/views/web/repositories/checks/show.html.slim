@@ -10,7 +10,7 @@ p
   = @check.created_at.strftime('%d.%m.%Y %H:%M')
 p
   strong.me-2 = t('repositories.checks.check_status')
-  = t("repositories.checks.state.#{@check.status}")
+  = @check.aasm.human_state
 p
   strong.me-2 = t('repositories.checks.result')
   - if @check.finished?
