@@ -19,9 +19,10 @@ module Web
     def new
       authorize Repository, :new?
       client = GithubClientFactory.for_user(current_user)
+      supported_languages = Repository.language.values
 
       github_repos = client.repos(user: current_user.nickname)
-      @github_repositories = github_repos.select { |rep| Repository.language.values.include?(rep.language&.downcase) }
+      @github_repositories = github_repos.select { |rep| supported_languages.include?(rep.language&.downcase) }
       @repository = current_user.repositories.build
     end
 
