@@ -20,12 +20,10 @@ class Repository::Check < ApplicationRecord
 
     event :finish do
       transitions from: :running, to: :finished
-      after { update!(passed: checking_passed?) }
     end
 
     event :fail do
       transitions from: :running, to: :failed
-      after { update!(passed: false) }
     end
   end
 

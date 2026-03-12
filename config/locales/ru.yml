@@ -31,6 +31,8 @@ ru:
     not_authorized: 'У вас нет прав для этого действия!'
     repository_created: 'Репозиторий успешно добавлен!'
     check_started: 'Проверка репозитория начата.'
+    check_already_running: 'Проверка уже выполняется!'
+    check_in_progress: 'Проверка репозитория выполняется...'
   titles:
     hexlet_hello: 'Привет от Хекслета!'
     project: 'Анализатор качества репозиториев'

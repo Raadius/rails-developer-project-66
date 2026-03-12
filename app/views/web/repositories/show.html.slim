@@ -6,6 +6,10 @@
         method: :post,
         class: 'btn btn-primary mb-3',
         data: { turbo: false }
+
+- if @checks.first&.pending? || @checks.first&.running?
+  .alert.alert-info = t('notices.check_in_progress')
+
 p
   strong.me-2 = t('repositories.info.language')
   = @repository.language
@@ -44,3 +48,5 @@ table.table
         - else
           td = '—'
         td = l(check.created_at, format: :long)
+
+= paginate @checks

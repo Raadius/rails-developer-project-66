@@ -18,3 +18,5 @@ table.table.table-striped.table-hover.mt-4
         td = link_to repository.full_name, repository_path(repository)
         td = repository.language
         td = repository.checks.recent.first&.aasm&.human_state
+
+= paginate @repositories

@@ -8,8 +8,7 @@ require 'ostruct'
 require 'minitest/mock'
 require 'webmock/minitest'
 require Rails.root.join('app/lib/github_client_stub')
-require Rails.root.join('app/lib/linter_stub')
-require Rails.root.join('app/lib/js_linter_stub')
+require Rails.root.join('app/lib/command_runner_stub')
 
 OmniAuth.config.test_mode = true
 

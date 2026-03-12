@@ -4,10 +4,3 @@ one:
   passed: true
   commit_id: abc123def456
   issues_count: 0
-
-two:
-  repository: rails_rails
-  aasm_state: pending
-  passed:
-  commit_id:
-  issues_count:

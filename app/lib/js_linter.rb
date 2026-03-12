@@ -5,13 +5,8 @@ class JsLinter
   CONFIG = Rails.root.join('.eslintrc.yml').to_s
 
   def self.run(path)
-    require 'open3'
-
     command = "#{ESLINT} --no-eslintrc --config #{CONFIG} --format json #{path}"
-    stdout, _status = Open3.popen3(command) do |_stdin, out, _err, wait_thr|
-      [out.read, wait_thr.value]
-    end
-
+    stdout = ApplicationContainer[:command_runner].run(command)
     normalize(JSON.parse(stdout))
   end
 

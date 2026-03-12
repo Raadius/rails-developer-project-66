@@ -31,6 +31,8 @@ en:
     not_authorized: 'You are not authorized to perform this action!'
     repository_created: 'Repository was added successfully!'
     check_started: 'Repository check has started!'
+    check_already_running: 'A check is already in progress!'
+    check_in_progress: 'Repository check is in progress...'
   titles:
     hexlet_hello: 'Hi from Hexlet!'
     project: 'Repository quality checker'

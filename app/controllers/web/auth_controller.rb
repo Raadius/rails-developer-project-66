@@ -2,8 +2,6 @@
 
 module Web
   class AuthController < ApplicationController
-    skip_after_action :verify_authorized
-
     def callback
       auth = request.env['omniauth.auth']
 

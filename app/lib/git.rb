@@ -1,7 +1,0 @@
-# frozen_string_literal: true
-
-class Git
-  def self.clone(url, path)
-    system('git', 'clone', '--', url, path.to_s)
-  end
-end

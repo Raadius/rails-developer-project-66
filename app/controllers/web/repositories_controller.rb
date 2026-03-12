@@ -2,32 +2,28 @@
 
 module Web
   class RepositoriesController < Web::ApplicationController
-    before_action :check_auth
+    before_action :check_auth!
+
+    SUPPORTED_LANGUAGES = Repository.language.values
 
     def index
-      skip_authorization
-      @repositories = policy_scope(Repository)
+      @repositories = current_user.repositories.page(params[:page])
     end
 
     def show
       @repository = current_user.repositories.find(params[:id])
-
       authorize @repository
-      @checks = @repository.checks.recent
+      @checks = @repository.checks.recent.page(params[:page])
     end
 
     def new
-      authorize Repository, :new?
       client = GithubClientFactory.for_user(current_user)
-      supported_languages = Repository.language.values
-
       github_repos = client.repos(user: current_user.nickname)
-      @github_repositories = github_repos.select { |rep| supported_languages.include?(rep.language&.downcase) }
+      @github_repositories = github_repos.select { |rep| SUPPORTED_LANGUAGES.include?(rep.language&.downcase) }
       @repository = current_user.repositories.build
     end
 
     def create
-      authorize Repository, :create?
       github_id = params.dig(:repository, :github_id).to_i
       client = GithubClientFactory.for_user(current_user)
       repo_info = client.repository(github_id)
@@ -42,13 +38,7 @@ module Web
       )
 
       if @repository.save
-        webhook_url = Rails.application.routes.url_helpers.api_checks_url
-        client.create_hook(
-          @repository.full_name,
-          'web',
-          { url: webhook_url, content_type: 'json', secret: ENV.fetch('GITHUB_WEBHOOK_SECRET', nil) }.compact,
-          { events: ['push'], active: true }
-        )
+        RegisterRepositoryWebhookJob.perform_later(@repository.id)
         redirect_to repositories_path, notice: t('notices.repository_created')
       else
         render :new, status: :unprocessable_content
