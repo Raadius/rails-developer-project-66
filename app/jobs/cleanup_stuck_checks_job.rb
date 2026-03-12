@@ -8,7 +8,7 @@ class CleanupStuckChecksJob < ApplicationJob
   def perform
     Repository::Check
       .where(aasm_state: %w[pending running])
-      .where('created_at < ?', STUCK_THRESHOLD.ago)
+      .where(created_at: ...STUCK_THRESHOLD.ago)
       .find_each { |check| check.update(aasm_state: 'failed', passed: false) }
   end
 end
