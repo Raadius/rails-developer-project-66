@@ -16,8 +16,8 @@ class RepositoryCheckService
 
     clone_and_lint(check, repo, linter, git)
 
-    check.update!(passed: check.checking_passed?)
     check.finish!
+    check.update!(passed: check.checking_passed?)
     CheckMailer.notify(check).deliver_later unless check.checking_passed?
   rescue StandardError => e
     check.update!(passed: false)
