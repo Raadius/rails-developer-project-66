@@ -9,6 +9,6 @@ class CleanupStuckChecksJob < ApplicationJob
     Repository::Check
       .where(aasm_state: %w[pending running])
       .where('created_at < ?', STUCK_THRESHOLD.ago)
-      .update_all(aasm_state: 'failed', passed: false)
+      .find_each { |check| check.update(aasm_state: 'failed', passed: false) }
   end
 end
