@@ -184,7 +184,9 @@ GEM
     mcp (0.7.1)
       json-schema (>= 4.1)
     mini_mime (1.1.5)
-    minitest (5.27.0)
+    minitest (6.0.2)
+      drb (~> 2.0)
+      prism (~> 1.5)
     minitest-power_assert (0.3.1)
       minitest
       power_assert (>= 1.1)
@@ -471,7 +473,7 @@ DEPENDENCIES
   git
   jsbundling-rails
   kaminari
-  minitest (~> 5.0)
+  minitest (~> 6.0)
   minitest-power_assert
   octokit
   omniauth-github
