@@ -49,7 +49,7 @@ gem 'pundit'
 gem 'rails-i18n'
 gem 'rollbar'
 gem 'simple_form'
-gem 'slim-rails', '~> 3.7.0'
+gem 'slim-rails', '~> 4.0.0'
 
 # Gemfile
 gem 'rubocop', require: false
